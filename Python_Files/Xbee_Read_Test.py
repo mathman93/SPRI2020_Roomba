@@ -46,6 +46,7 @@ while True:
 		if (time.time() - sendtime) > sendtime_offset:
 			message = '1' # Change this to any character string you want
 			Xbee.write(message.encode()) # Send the number over the Xbee
+			print("you sent stuff")
 			sendtime += sendtime_offset # Increase offset for next time to send message
 		
 		if Xbee.inWaiting() > 0: # If there is something in the receive buffer
