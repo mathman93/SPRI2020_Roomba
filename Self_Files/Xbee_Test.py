@@ -35,7 +35,7 @@ basetime_offset = 0.5 # Time between LED blinks
 
 
 while True:
-timer=time.time() - sendtime
+        timer=time.time() - sendtime
 	try:
 		if (timer) > sendtime_offset:
 			message = '1' # Change this to any character string you want
