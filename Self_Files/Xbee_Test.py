@@ -47,7 +47,8 @@ while True:
 			message = Xbee.read(Xbee.inWaiting()).decode() # Read all data in
 			print(message) # To see what the message is
 			print(timer)
-                      #  if message=='1':
+                        if message=='1':
+                                timer=time.time() - sendtime + ((time.time() - sendtime + sendtime_offset)/2) 
                                 
 				
 	except KeyboardInterrupt:
