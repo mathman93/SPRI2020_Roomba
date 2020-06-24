@@ -36,7 +36,8 @@ basetime_offset = 0.5 # Time between LED blinks
 
 while True:
 	try:
-		if (time.time() - sendtime) > sendtime_offset:
+                timer=time.time() - sendtime
+		if (timer) > sendtime_offset:
 			message = '1' # Change this to any character string you want
 			Xbee.write(message.encode()) # Send the number over the Xbee
 			print("you sent stuff")
@@ -45,7 +46,7 @@ while True:
 		if Xbee.inWaiting() > 0: # If there is something in the receive buffer
 			message = Xbee.read(Xbee.inWaiting()).decode() # Read all data in
 			print(message) # To see what the message is
-			print(time.time() - sendtime)
+			print(timer)
                       #  if message=='1':
                                 
 				
