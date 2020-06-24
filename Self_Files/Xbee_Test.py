@@ -35,8 +35,8 @@ basetime_offset = 0.5 # Time between LED blinks
 
 
 while True:
+timer=time.time() - sendtime
 	try:
-                timer=time.time() - sendtime
 		if (timer) > sendtime_offset:
 			message = '1' # Change this to any character string you want
 			Xbee.write(message.encode()) # Send the number over the Xbee
@@ -56,8 +56,7 @@ while True:
 		break
 
 ## -- Ending Code Starts Here -- ##
-# Make sure this code runs to end the program cleanly
-GPIO.output(gled, GPIO.LOW) # Turn off green LED
+
 
 Xbee.close()
 GPIO.cleanup() # Reset GPIO pins for next program
