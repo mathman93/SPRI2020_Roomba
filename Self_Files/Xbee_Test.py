@@ -29,7 +29,7 @@ DisplayDateTime()
 
 # Main Code #
 sendtime = time.time()
-sendtime_offset = 60.0 # Time between sending messages
+sendtime_offset = 15.0 # Time between sending messages
 basetime = time.time()
 basetime_offset = 0.5 # Time between LED blinks
 
@@ -45,6 +45,8 @@ while True:
 		if Xbee.inWaiting() > 0: # If there is something in the receive buffer
 			message = Xbee.read(Xbee.inWaiting()).decode() # Read all data in
 			print(message) # To see what the message is
+			print(sendtime)
+			print(sendtime_offset)
                       #  if message=='1':
                                 
 				
