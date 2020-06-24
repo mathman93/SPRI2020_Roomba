@@ -45,8 +45,7 @@ while True:
 		if Xbee.inWaiting() > 0: # If there is something in the receive buffer
 			message = Xbee.read(Xbee.inWaiting()).decode() # Read all data in
 			print(message) # To see what the message is
-			print(sendtime)
-			print(sendtime_offset)
+			print(time.time() - sendtime)
                       #  if message=='1':
                                 
 				
