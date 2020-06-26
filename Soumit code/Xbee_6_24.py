@@ -7,8 +7,6 @@ Xbee = serial.Serial('/dev/ttyUSB0', 115200)
 
 
 #Body
-send = time.time()
-on = 1
 angle = 0
 pulse = 0
 
