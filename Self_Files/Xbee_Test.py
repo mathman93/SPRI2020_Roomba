@@ -29,7 +29,7 @@ DisplayDateTime()
 
 # Main Code #
 sendtime = time.time()
-sendtime_offset = 15.0 # Time between sending messages
+sendtime_offset = 12.0 # Time between sending messages
 basetime = time.time()
 basetime_offset = 0.5 # Time between LED blinks
 
@@ -48,7 +48,7 @@ while True:
 			print(message) # To see what the message is
 			print(timer)
                         if message=='1':
-                                timer=
+                                sendtime=sendtime+(sendtime*
                                 
 				
 	except KeyboardInterrupt:
