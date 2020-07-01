@@ -35,7 +35,6 @@ while True:
         if Xbee.inWaiting() > 0:  # If there is something in the receive buffer
             message = Xbee.read(Xbee.inWaiting()).decode()  # Read all data in
             print(message)  # To see what the message is
-            print(timer)
             if message == '1':
                 time_base = time_base + (360 - phase / 2)
                 # angle+= something#based on value of phase
