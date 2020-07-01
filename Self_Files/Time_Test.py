@@ -14,7 +14,7 @@ def DisplayDateTime():
 
 
 threshold=360
-cycletime=12
+cycletime=10
 freq=threshold/cycletime
 time_base= time.time()
 angle=int(input("intitial robot angle"))
@@ -39,7 +39,7 @@ while True:
 		if message=='1':
                     angle+= something#based on value of phase
 
-                    time_base
+                    time_base=time_base+((360-((time.time()-time_base)*freq)/2)
                     #angle=angle+ x
 
 
