@@ -37,7 +37,7 @@ while True:
 			print(timer)
                         if message=='1':
                                 time_base=time_base+((360-((time.time()-time_base)*freq)/2)
-                                angle+= something#based on value of phase
+                                #angle+= something#based on value of phase
                                 #angle=angle+ x
 				
 	except KeyboardInterrupt:
