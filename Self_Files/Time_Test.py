@@ -36,7 +36,13 @@ while True:
             message = Xbee.read(Xbee.inWaiting()).decode()  # Read all data in
             print(message)  # To see what the message is
             if message == '1':
-                time_base = time_base - math.sin(math.radians(phase))
+                if phase<=180:
+                    new_base =((phase/2)-angle)/freq-time.time()
+                    time_base = new_base
+
+                if phase>180:
+                    new_base =((360+phase/2)-angle)/freq-time.time()
+                    time_base = new_base
                 # angle+= something#based on value of phase
                 # angle=angle+ x
 
