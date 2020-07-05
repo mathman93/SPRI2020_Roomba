@@ -1,5 +1,6 @@
 import serial
 import time
+import threading
 
 
 global Xbee #xbee
@@ -8,35 +9,36 @@ Xbee = serial.Serial('/dev/ttyUSB0', 115200)
 
 #Body
 angle = 0
-pulse = 0
+cycle_time = 10 #length of osc duration
+time_base = time.time()
+initial_heading  = float(input("Initial angle?" ));
+
 
 while True:
 	try:
-                while(angle < 360):
-                    def add():
-                    angle =+ 2.5 
+                                             #While the heading of the roomba is <360 degrees, rotate the roomba by 2.5 degrees per second
+                    angle = initial_heading + ((time.time() - time_base) * 360/cycle_time)
 
-                    t = Timer(1, add)
-                    t.start()
-                    
-
-                if (angle = 360):
-                    angle = 0
-                    pulse = 1
-                
-
-                    
-		if (pulse = 1):
+                if (angle => 360):       #When angle =360, send out a pulse 
 			broadcast = '1'
 			Xbee.write(broadcast.encode())
-			pulse = 0
-			
+			print("output")
+			time_base = time.time()
+
+
+			def printit():          #print out the angle every 5 seconds
+                          threading.Timer(5.0, printit).start()
+                          print ("{0:.3f}".format(angle))
+
+                        printit()
 
 			
-		if Xbee.inWaiting() > 0: 
+		if Xbee.inWaiting() > 0: # when recieve message, decrease the initial_heading by 25% of the difference 
 			message = Xbee.read(Xbee.inWaiting()).decode()
-                        angle= angle - ((360 - angle)*0.25)
+                        initial_heading = initial_heading - ((360 - angle)*0.25)
 
+
+                        
                         
                         
 		
