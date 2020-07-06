@@ -47,6 +47,6 @@ while True:
                 if (initial_heading <= 0):
                     initial_heading = 360 - initial_heading
 
-                    
 
-        except KeyboardInterrupt: break
+        except KeyboardInterrupt:
+            break
