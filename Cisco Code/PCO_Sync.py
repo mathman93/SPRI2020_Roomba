@@ -26,7 +26,6 @@ while True:
 
             time_base = time.time() #repeat code, find workaround
 
-            currentPhase == 0 #Resets phase back to 0
 
 
 
