@@ -21,7 +21,7 @@ initial_heading  = float(input("Initial angle?" ));
 while True:
 	try:
                                         
-                    angle = initial_heading + ((time.time() - time_base) * 360/cycle_time)      #While the heading of the roomba is <360 degrees, rotate the roomba by 2.5 degrees per second
+                angle = initial_heading + ((time.time() - time_base) * 360/cycle_time)      #While the heading of the roomba is <360 degrees, rotate the roomba by 2.5 degrees per second
  
                 if (angle => 360):       #When angle =360, send out a pulse 
 			broadcast = '1'
