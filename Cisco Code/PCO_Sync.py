@@ -2,9 +2,11 @@
 
 global Xbee
 
+import time
+import serial
+
 Xbee = serial.Serial('/dev/ttyUSB0', 115200)
 
-import time
 
 syncLimit = 360 #Degree Limit of oscillator
 cycleTime = 10 #Length (in seconds) of oscillator cycle
