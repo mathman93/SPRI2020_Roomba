@@ -20,15 +20,18 @@ initial_heading  = float(input("Initial angle?" ));
 
 while True:
 	try:
+                except KeyboardInterrupt: break
+                
                                         
                 angle = initial_heading + ((time.time() - time_base) * 360/cycle_time)      #While the heading of the roomba is <360 degrees, rotate the roomba by 2.5 degrees per second
+
  
-                if (angle >= 360):       #When angle =360, send out a pulse 
-			broadcast = '1'
-			Xbee.write(broadcast.encode())
-			print("output")
-			time_base = time.time()
-                        printit()
+                if (angle >= 360):
+                    broadcast = '1'
+                    Xbee.write(broadcast.encode())
+                    print("output")
+                    time_base = time.time()
+                    printit()
 
 
 		
@@ -36,18 +39,12 @@ while True:
                        
 
 			
-		if Xbee.inWaiting() > 0: # when recieve message, decrease the initial_heading by 25% of the difference 
-			message = Xbee.read(Xbee.inWaiting()).decode()
-                        initial_heading = initial_heading - ((360 - angle)*0.25)
+                if Xbee.inWaiting() > 0:
+                    message = Xbee.read(Xbee.inWaiting()).decode()
+                    initial_heading = initial_heading - ((360 - angle)*0.25)
 
 
-                if (initial_heading <= 0)
-                        initial_heading = 360 - initial_heading
+                if (initial_heading <= 0):
+                    initial_heading = 360 - initial_heading
 
-                
-
-
-                        
-                        
-                        
-		
+        
