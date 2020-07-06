@@ -16,8 +16,8 @@ currentPhase = 0 #Initialises Angle
 
 while True:
     try:
-        currentPhase = (time.time() - time_base) * frequency
         timeDiff = (time.time() - time_base)
+        currentPhase = timeDiff * frequency
         
         if currentPhase >= syncLimit:
             message = '1'  # Encoded message for the Xbee to send
