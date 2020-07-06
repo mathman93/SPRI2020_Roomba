@@ -30,7 +30,7 @@ while True:
 
 
 
-        if test > Xbee.inWaiting() > 0: #If the Xbee receives a message
+        if Xbee.inWaiting() > 0: #If the Xbee receives a message
             message = Xbee.read(Xbee.inWaiting()).decode() #Decodes and reads the data
 
             #Find difference between time of receiving pulse vs. time of next threshold
