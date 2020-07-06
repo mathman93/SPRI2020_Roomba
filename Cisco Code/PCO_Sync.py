@@ -17,14 +17,15 @@ currentPhase = 0 #Initialises Angle
 while True:
     try:
         currentPhase = (time.time() - time_base) * frequency
-
+        timeDiff = (time.time() - time_base)
+        
         if currentPhase >= syncLimit:
             message = '1'  # Encoded message for the Xbee to send
             Xbee.write(message.encode())  # Encodes the message
             print("You sent a pulse")
             print(currentPhase)
 
-            time_base = time.time() #repeat code, find workaround
+            time_base += cycleTime #Increases thes
 
 
 
@@ -33,10 +34,10 @@ while True:
             message = Xbee.read(Xbee.inWaiting()).decode() #Decodes and reads the data
 
             #Find difference between time of receiving pulse vs. time of next threshold
-            timeDiff = (time.time() - time_base)-cycleTime
+            #timeDiff = (time.time() - time_base)-cycleTime
 
-            currentPhase = currentPhase-(timeDiff*frequency*0.5) #Shifts phase forward by half of the difference.
-
+            #currentPhase = currentPhase-(timeDiff*frequency*0.5) #Shifts phase forward by half of the difference.
+            time_base += timeDiff*0.5
 
     except KeyboardInterrupt:
         print('Connection Terminated')
