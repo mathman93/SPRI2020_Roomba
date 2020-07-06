@@ -20,7 +20,7 @@ initial_heading  = float(input("Initial angle?" ));
 
 while True:
 	try:
-                except KeyboardInterrupt: break
+                
                 
                                         
                 angle = initial_heading + ((time.time() - time_base) * 360/cycle_time)      #While the heading of the roomba is <360 degrees, rotate the roomba by 2.5 degrees per second
@@ -47,4 +47,6 @@ while True:
                 if (initial_heading <= 0):
                     initial_heading = 360 - initial_heading
 
-        
+                    
+
+                except KeyboardInterrupt: break
