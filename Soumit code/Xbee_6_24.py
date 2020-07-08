@@ -44,7 +44,7 @@ while True:
 
 
                 if (initial_heading <= 0):
-                    initial_heading = 360 + intial_heading
+                    initial_heading = 360 + initial_heading
                     time_base = time_base + cycle_time
 
 
