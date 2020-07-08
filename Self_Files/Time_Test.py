@@ -19,12 +19,16 @@ cycletime = 10
 freq = threshold / cycletime
 time_base = time.time()
 angle = int(input("intitial robot angle"))
-
+heading = angle
 # phase = angle + timer
 
 while True:
     try:
         phase = angle + ((time.time() - time_base) * freq)
+        count_base = time.time()
+        timer = time.time()-count_base
+        if timer >= 1:
+            print("("+phase+", "+heading+")")
 
         if phase >= threshold:
             message = '1'  # Change this to any character string you want
@@ -36,9 +40,11 @@ while True:
             message = Xbee.read(Xbee.inWaiting()).decode()  # Read all data in
             print(message)  # To see what the message is
             if message == '1':
+                print(phase)
                 if phase<=threshold/2:
                     #new_base =((phase/2)-angle)/freq-time.time()
                     time_base = time_base + (1/2*((phase)-angle)/freq)
+                    
 
                 if phase>threshold/2:
                     #new_base =((360+phase/2)-angle)/freq-time.time()
