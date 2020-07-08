@@ -36,7 +36,7 @@ while True:
                     
                 if (time.time() - timer_baseval >= 1):
                     print ("{0:.3f}".format(angle))
-                    timer_baseval = time.time()
+                    timer_baseval = timer_baseval + 1
 
 
                 if Xbee.inWaiting() > 0:
@@ -46,7 +46,7 @@ while True:
 
                 if (initial_heading <= 0):
                     initial_heading = 360 + initial_heading
-                    time_base = time.time()
+                    time_base = time_base + 10
 
 
         except KeyboardInterrupt:
