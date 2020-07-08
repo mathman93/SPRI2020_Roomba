@@ -35,7 +35,7 @@ while True:
                     
                 if (time.time() - timer_baseval >= 1):
                     timer_baseval = timer_baseval + 1
-                    print ("{0:.3f}".format(angle))
+                    print ("{0:.3f, 1:1f}".format(angle, initial_heading))
                 
 
                 if Xbee.inWaiting() > 0:
