@@ -15,7 +15,8 @@ def printit():          #print out the angle every 5 seconds
 #Body
 cycle_time = 10 #length of osc duration
 time_base = time.time()
-initial_heading  = float(input("Initial angle?" ));
+initial_heading  = float(input("Initial angle?" ))
+timer_baseval = time.time()
 
 
 while True:
@@ -33,7 +34,9 @@ while True:
                     print("output")
                     time_base = time.time()
                     
-
+                if (time.time() - timer_baseval >= 1)
+                    print ("{0:.3f}".format(angle))
+                    timer_baseval = time.time()
 
 
                 if Xbee.inWaiting() > 0:
@@ -42,7 +45,8 @@ while True:
 
 
                 if (initial_heading <= 0):
-                    initial_heading = 360 - initial_heading
+                    initial_heading = 360 + initial_heading
+                    time_base = time.time()
 
 
         except KeyboardInterrupt:
