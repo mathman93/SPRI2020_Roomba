@@ -34,7 +34,7 @@ while True:
                     print("output")
                     time_base = time.time()
                     
-                if (time.time() - timer_baseval >= 1)
+                if (time.time() - timer_baseval >= 1):
                     print ("{0:.3f}".format(angle))
                     timer_baseval = time.time()
 
