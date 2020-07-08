@@ -41,9 +41,7 @@ while True:
                 if Xbee.inWaiting() > 0:
                     message = Xbee.read(Xbee.inWaiting()).decode()
                     if (angle < 180):
-                        initial_heading = initial_heading - ((initial_heading)*0.25)
-                        if (initial_heading <= 0):
-                            initial_heading = 360 + initial_heading
+                        initial_heading = initial_heading - ((angle)*0.25)
 
                     if (angle >= 180):
                         initial_heading = initial_heading + ((360 - angle)*0.25)
@@ -51,8 +49,13 @@ while True:
 
 
                 if (initial_heading >= 360):
-                    initial_heading = 0 + (360 - inital_heading)
+                    initial_heading = initial_heading - 360
                     time_base = time_base + cycle_time
+
+                    
+                if (initial_heading <= 0):
+                    initial_heading = 360 + initial_heading
+                    time_base = time_base - cycle_time
 
 
         except KeyboardInterrupt:
