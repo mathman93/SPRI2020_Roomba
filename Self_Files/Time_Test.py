@@ -3,10 +3,10 @@ import time
 import serial
 import os.path
 
-#file_name_input=input("Name for date file: ")
-#dir_path="/home/pi/SPRI2020_Roomba/Data_Files/"
-#file_name= os.path.join(dir_path,file_name_input+".txt")
-#file=open(file_name,"w")
+file_name_input=input("Name for date file: ")
+dir_path="/home/pi/SPRI2020_Roomba/Data_Files/"
+file_name= os.path.join(dir_path,file_name_input+".txt")
+file=open(file_name,"w")
 
 
 global Xbee  # Specifies connection to Xbee
@@ -37,7 +37,7 @@ while True:
         if timer > count_baseoffset:
             print("("+phase+", "+angle+")")
             count_base += 1
-            #file.write("("+phase+", "+angle+")\n")
+            file.write("("+phase+", "+angle+")\n")
 
         if phase >= threshold:
             message = '1'  # Change this to any character string you want
