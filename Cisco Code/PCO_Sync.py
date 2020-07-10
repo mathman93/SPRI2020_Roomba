@@ -40,9 +40,9 @@ while True:
 
             #currentPhase = currentPhase-(timeDiff*frequency*0.5) #Shifts phase forward by half of the difference.
             #time_base += timeDiff*0.5  
-            if timeDiff >= cycleTime:
+            if timeDiff >= cycleTime/2:
                 heading =+ timeDiff*0.5*frequency
-            elif timeDiff < cycleTime:
+            elif timeDiff < cycleTime/2:
                 heading =- timeDiff*0.5*frequency
 
     except KeyboardInterrupt:
