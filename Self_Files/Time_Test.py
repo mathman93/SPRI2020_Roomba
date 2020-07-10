@@ -1,6 +1,13 @@
 import math
 import time
 import serial
+import os.path
+
+file_name_input=input("Name for date fie: ")
+dir_path="/home/pi/SPRI2020_Roomba/Data_Files/"
+file_name= os.path.join(dir_path,file_name_input+".txt")
+file=open(file_name,"w")
+
 
 global Xbee  # Specifies connection to Xbee
 Xbee = serial.Serial('/dev/ttyUSB0', 115200)  # Baud rate should be 115200
@@ -27,8 +34,10 @@ while True:
         phase = angle + ((time.time() - time_base) * freq)
         count_base = time.time()
         timer = time.time()-count_base
-        if timer >= 1:
-            print("("+phase+", "+heading+")")
+        if timer > 1:
+            print("("+phase+", "+angle+")")
+            count_base += 1
+            file.write("("+phase+", "+angle+")\n")
 
         if phase >= threshold:
             message = '1'  # Change this to any character string you want
@@ -43,12 +52,13 @@ while True:
                 print(phase)
                 if phase<=threshold/2:
                     #new_base =((phase/2)-angle)/freq-time.time()
-                    time_base = time_base + (1/2*((phase)-angle)/freq)
-                    
+                    #time_base = time_base + (1/2*((phase)-angle)/freq)
+                    angle=-(1/2*((phase)-angle)/freq)
 
                 if phase>threshold/2:
                     #new_base =((360+phase/2)-angle)/freq-time.time()
-                    time_base = time_base - (((360-phase)/2)-angle)/freq
+                    #time_base = time_base - (((360-phase)/2)-angle)/freq
+                    angle=(((360-phase)/2)-angle)/freq
                 # angle+= something#based on value of phase
                 # angle=angle+ x
 
@@ -58,3 +68,4 @@ while True:
         break
 
 Xbee.close()
+file.close()
