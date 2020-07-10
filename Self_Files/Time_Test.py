@@ -26,15 +26,15 @@ cycletime = 10
 freq = threshold / cycletime
 time_base = time.time()
 angle = int(input("intitial robot angle"))
-heading = angle
+count_base = time.time()
+count_baseoffset = 1
 # phase = angle + timer
 
 while True:
     try:
         phase = angle + ((time.time() - time_base) * freq)
-        count_base = time.time()
         timer = time.time()-count_base
-        if timer > 1:
+        if timer > count_baseoffset:
             print("("+phase+", "+angle+")")
             count_base += 1
             file.write("("+phase+", "+angle+")\n")
