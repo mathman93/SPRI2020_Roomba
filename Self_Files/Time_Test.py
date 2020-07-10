@@ -53,12 +53,12 @@ while True:
                 if phase<=threshold/2:
                     #new_base =((phase/2)-angle)/freq-time.time()
                     #time_base = time_base + (1/2*((phase)-angle)/freq)
-                    angle=-(1/2*((phase)-angle)/freq)
+                    angle=-1/2*(phase)
 
                 if phase>threshold/2:
                     #new_base =((360+phase/2)-angle)/freq-time.time()
                     #time_base = time_base - (((360-phase)/2)-angle)/freq
-                    angle=(((360-phase)/2)-angle)/freq
+                    angle=(360-phase)/2
                 # angle+= something#based on value of phase
                 # angle=angle+ x
 
