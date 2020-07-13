@@ -24,7 +24,7 @@ DisplayDateTime()
 threshold = 360
 cycletime = 10
 freq = threshold / cycletime
-time_base = time.time()
+time_base = time.time()-(time.time()%cycletime)
 count_base = time.time()
 count_baseoffset = 1
 # phase = angle + timer
