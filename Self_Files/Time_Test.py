@@ -25,7 +25,7 @@ threshold = 360
 cycletime = 10
 freq = threshold / cycletime
 time_base = time.time()-(time.time()%cycletime)
-count_base = time.time()
+count_base = time.time()-(time.time()%cycletime)
 count_baseoffset = 1
 # phase = angle + timer
 
@@ -34,7 +34,7 @@ while True:
         phase = angle + ((time.time() - time_base) * freq)
         timer = time.time()-count_base
         if timer > count_baseoffset:
-            count_base += 1
+            count_base += count_baseoffset
             print("{0:.3f}, {1:.3f}, {2:.3f}".format(count_base, phase, angle))
             #file.write("{0:.3f}, {1:.3f}, {2:.3f}\n".format(count_base, phase, angle))
 
