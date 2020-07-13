@@ -36,7 +36,7 @@ while True:
         if timer > count_baseoffset:
             count_base += count_baseoffset
             print("{0:.3f}, {1:.3f}, {2:.3f}".format(count_base, phase, angle))
-            #file.write("{0:.3f}, {1:.3f}, {2:.3f}\n".format(count_base, phase, angle))
+            file.write("{0:.3f}, {1:.3f}, {2:.3f}\n".format(count_base, phase, angle))
 
         if phase >= threshold:
             message = '1'  # Change this to any character string you want
