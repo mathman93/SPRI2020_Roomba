@@ -19,7 +19,7 @@ def DisplayDateTime():
     date_time = time.strftime("%B %d, %Y, %H:%M:%S", time.gmtime())
     print("Program run: ", date_time)
 
-    DisplayDateTime()
+DisplayDateTime()
 
 threshold = 360
 cycletime = 10
@@ -38,7 +38,7 @@ while True:
             print("{0:.3f}, {1:.3f}, {2:.3f}".format(count_base, phase, angle)
             #file.write("{0:.3f}, {1:.3f}, {2:.3f}\n".format(count_base, phase, angle))
 
-        if phase >= threshold :
+        if phase >= threshold:
             message = '1'  # Change this to any character string you want
             Xbee.write(message.encode())  # Send the number over the Xbee
             print("you sent stuff")
