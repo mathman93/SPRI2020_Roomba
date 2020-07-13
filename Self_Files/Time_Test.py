@@ -8,7 +8,6 @@ file_name_input=input("Name for date file: ")
 dir_path="/home/pi/SPRI2020_Roomba/Data_Files/"
 file_name= os.path.join(dir_path,file_name_input+".txt")
 file=open(file_name,"w")
-
 angle = int(input("intitial robot angle"))
 
 global Xbee  # Specifies connection to Xbee
@@ -21,7 +20,6 @@ def DisplayDateTime():
     print("Program run: ", date_time)
 
     DisplayDateTime()
-
 
 threshold = 360
 cycletime = 10
@@ -40,7 +38,7 @@ while True:
             print("{0:.3f}, {1:.3f}, {2:.3f}".format(count_base, phase, angle)
             #file.write("{0:.3f}, {1:.3f}, {2:.3f}\n".format(count_base, phase, angle))
 
-        if phase >= threshold:
+        if phase >= threshold :
             message = '1'  # Change this to any character string you want
             Xbee.write(message.encode())  # Send the number over the Xbee
             print("you sent stuff")
