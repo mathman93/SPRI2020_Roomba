@@ -59,9 +59,9 @@ while True:
                     #time_base = time_base - (((360-phase)/2)-angle)/freq
                     angle=(360-phase)/2
                 if angle>360:
-			angle=360
-		if angle<=360:
-			angle=0
+                        angle=360
+		if angle<0:
+                        angle=0
         
 
 		
