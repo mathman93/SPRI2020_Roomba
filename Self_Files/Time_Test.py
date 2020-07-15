@@ -58,6 +58,12 @@ while True:
                     #new_base =((360+phase/2)-angle)/freq-time.time()
                     #time_base = time_base - (((360-phase)/2)-angle)/freq
                     angle=angle+(360-phase)/2
+                    if angle<0:
+                        angle=0
+                        time_base += cycletime
+                    if angle>360:
+                        angle=360
+                        time_base -= cycletime
                 
 		
     except KeyboardInterrupt:
