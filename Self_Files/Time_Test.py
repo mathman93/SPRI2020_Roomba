@@ -22,7 +22,7 @@ def DisplayDateTime():
 DisplayDateTime()
 
 threshold = 360
-cycletime = 10
+cycletime = 12
 freq = threshold / cycletime
 time_base = time.time()-(time.time()%cycletime)
 count_base = time.time()-(time.time()%cycletime)
